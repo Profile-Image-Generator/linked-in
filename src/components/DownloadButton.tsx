@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from "../ui/Button";
 
 interface DownloadButtonProps {
     profileImage: string | null;
@@ -23,13 +24,13 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ profileImage, bannerIma
     };
 
     return (
-        <button
+        <Button
             onClick={handleDownload}
             disabled={!profileImage && !bannerImage}
-            className="mt-8 w-full bg-blue-600 text-white py-3 px-6 rounded-md font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            fullWidth
         >
             Download Images
-        </button>
+        </Button>
     );
 };
 

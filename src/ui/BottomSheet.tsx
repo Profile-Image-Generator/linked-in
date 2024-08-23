@@ -34,10 +34,12 @@ const BottomSheet: React.FC<BottomSheetProps> = ({
     onClose();
   };
 
+  const heightStyle = isFullSize ? "h-screen" : "h-[50vh]";
+
   useEffect(() => {
     if (isOpen) {
       setSheetState(isFullSize ? SheetState.Full : SheetState.Half);
-      sheetAnimation.start({ y: "50%", height: "50vh" });
+      sheetAnimation.start({ y: 0, height: "50vh" });
     } else {
       setSheetState(SheetState.Closed);
       sheetAnimation.start({ y: "100%" });
@@ -82,7 +84,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({
   const resetToHalfScreen = () => {
     setSheetState(SheetState.Half);
     sheetAnimation.start({
-      y: "50%",
+      y: 0,
       height: "50vh",
     });
   };
@@ -104,9 +106,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({
         },
         height: { duration: 0.3, ease: "easeOut" },
       }}
-      className={`fixed bottom-0 left-0 right-0 w-full bg-white rounded-t-lg p-4 z-10 ${
-        sheetState === SheetState.Full ? "h-screen" : "h-[50vh]"
-      }`}
+      className={`fixed bottom-0 left-0 right-0 w-full bg-white rounded-t-lg p-4 z-10 ${heightStyle}`}
     >
       <SheetHeader title={title} onClose={handleClose} />
       <SheetContent>{children}</SheetContent>
@@ -131,7 +131,7 @@ const SheetHeader: React.FC<{ title: string; onClose: () => void }> = ({
 const SheetContent: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => (
-  <section className="mb-4 overflow-y-auto h-[calc(100%-8rem)]">
+  <section className="mb-4 overflow-y-auto h-[calc(100%-8rem)] bg-orange-600">
     {children}
   </section>
 );
