@@ -4,6 +4,7 @@ import Modal from "../ui/Modal";
 import useDisclosure from "../hooks/useDisclosure";
 import { createPortal } from "react-dom";
 import BottomSheet from "../ui/BottomSheet";
+import Modal2 from "../ui/Modal2";
 
 interface BannerImageEditorProps {
   setBannerImage: (image: string) => void;
@@ -87,17 +88,17 @@ const BannerImageEditor: React.FC<BannerImageEditorProps> = ({
             />
           </div>
         )}
-        <Button onClick={handleBottomSheetOpen}>정렬 수정하기</Button>
+        <Button onClick={handleModalOpen}>정렬 수정하기</Button>
         {/*<Button onClick={handleBottomSheetOpen}>정렬 수정하기</Button>*/}
       </div>
       {isModalOpen && (
-        <Modal
+        <Modal2
           isOpen={isModalOpen}
           onClose={handleModalClose}
           title={"Edit Banner Image Arrangement"}
         >
           test
-        </Modal>
+        </Modal2>
       )}
       <BottomSheet
         isOpen={isBottomSheetOpen}
