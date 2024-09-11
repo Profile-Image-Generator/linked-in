@@ -24,6 +24,7 @@ export default function Modal({
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const modalRef = useRef<HTMLDialogElement>(null);
 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? foods.length - 1 : prev - 1));
@@ -33,14 +34,45 @@ export default function Modal({
     setCurrentIndex((prev) => (prev === foods.length - 1 ? 0 : prev + 1));
   };
 
+  const handleOutsideClick = (e: React.MouseEvent<HTMLDialogElement>) => {
+    if (e.target === modalRef.current) {
+      onClose();
+    }
+  };
+
   const ModalComp = (
     <dialog
+      ref={modalRef}
       open
-      className="fixed  top-0 left-0 w-screen h-screen flex items-center justify-center bg-gray-800 bg-opacity-80"
+      className=" fixed  top-0 left-0 w-screen h-screen flex items-center justify-center bg-gray-800 bg-opacity-80 "
+      onClick={handleOutsideClick}
     >
-      <section className="bg-pink-300  p-4 rounded-lg shadow-2xl">
-        <header>
-          <h1 className="text-3xl">내가 조아하는 음식을 아르켜줄게 🫧🫧</h1>
+      <section
+        onClick={(e) => e.stopPropagation()}
+        className="relative bg-pink-300 p-12 rounded-lg shadow-2xl"
+      >
+        <header className=" flex items-center justify-center mb-4">
+          <h1 className="text-3xl font-bold pr-4 ">
+            내가 조아하는 음식을 아르켜줄게 🫧🫧
+          </h1>
+          <button
+            onClick={onClose}
+            className="absolute  top-4 right-3 p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-40"
+          >
+            <svg
+              className="h-6 w-6 text-gray-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
         </header>
         <article className="flex flex-col items-center">
           <h2 className="text-green-200 text-2xl mb-4 mt-5">
