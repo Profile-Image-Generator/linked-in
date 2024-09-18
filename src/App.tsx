@@ -4,6 +4,8 @@ import ProfileImageEditor from "./components/ProfileImageEditor";
 import Preview from "./components/Preview";
 import DownloadButton from "./components/DownloadButton";
 import BannerImageEditor from "./components/BannerImageEditor";
+import Button from "./ui/Button";
+import { ButtonComponent } from "./components/Button";
 
 const App: React.FC = () => {
   const [profileImage, setProfileImage] = useState<string | null>(null);
@@ -35,6 +37,7 @@ const App: React.FC = () => {
             profileImage={profileImage}
             bannerImage={bannerImage}
           />
+          <ButtonComponent type="contained" />
         </main>
       </div>
     </>
