@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Sync Forked Repo
-        uses: humonnom/sync-fork@v0.1.0-alpha.6
+        uses: humonnom/dispatch-event@v0.1.0-alpha.1
         with:
           forked_repository_owner: 'humonnom'
           forked_repository_name: 'linked-in'
