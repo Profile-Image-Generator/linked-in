@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Sync Forked Repo
-        uses: humonnom/sync-fork@0.1.0-alpha.5
+        uses: humonnom/sync-fork@v0.1.0-alpha.5
         with:
           upstream_repository_owner: 'original-owner'
           upstream_repository_name: 'original-repo'
