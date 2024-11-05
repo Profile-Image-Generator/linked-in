@@ -14,7 +14,7 @@ jobs:
       - name: Sync Forked Repo
         uses: humonnom/sync-fork@v0.1.0-alpha.5
         with:
-          upstream_repository_owner: 'original-owner'
-          upstream_repository_name: 'original-repo'
-          forked_repository_owner: 'your-username'
-          forked_repository_name: 'forked-repo'
+          upstream_repository_owner: 'Profile-Image-Generator'
+          upstream_repository_name: 'linked-in'
+          forked_repository_owner: 'humonnom'
+          forked_repository_name: 'linked-in'
