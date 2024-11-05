@@ -1,15 +1,20 @@
-name: Auto Sync Forked Repo
+name: Sync Forked Repository
 
 on:
   push:
-    branches: 
+    branches:
       - main
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       
-      - name: Auto Sync Forked Repo
-        uses: humonnom/sync-fork@v0.1.0-alpha.4
+      - name: Sync Forked Repo
+        uses: humonnom/sync-fork@0.1.0-alpha.5
+        with:
+          upstream_repository_owner: 'original-owner'
+          upstream_repository_name: 'original-repo'
+          forked_repository_owner: 'your-username'
+          forked_repository_name: 'forked-repo'
