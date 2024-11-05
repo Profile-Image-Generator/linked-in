@@ -1,0 +1,19 @@
+name: Dispatch Event to Trigger Sync
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Sync Forked Repo
+        uses: humonnom/sync-fork@v0.1.0-alpha.6
+        with:
+          forked_repository_owner: 'humonnom'
+          forked_repository_name: 'linked-in'
+          forked_repository_token: ${{ secrets.PAT }}
