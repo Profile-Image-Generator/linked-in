@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Sync Forked Repo
-        uses: humonnom/sync-fork@v0.1.0-alpha.6
+        uses: humonnom/sync-fork@v0.1.0-alpha.7
         with:
           upstream_repository_owner: 'Profile-Image-Generator'
           upstream_repository_name: 'linked-in'
